@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pokédex Gear Boy</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Estrutura Principal do Super Gear Boy -->
+  <div class="gearboy-wrapper">
+    
+    <!-- Antenas do Super Gear Boy -->
+    <div class="antenna-small"></div>
+    <div class="antenna-long"></div>
+
+    <!-- Pegadores/Manoplas Laterais -->
+    <div class="handle handle-left">
+      <div class="grip"></div>
+    </div>
+    <div class="handle handle-right">
+      <div class="grip">
+        <span class="handle-tag">R</span>
+      </div>
+    </div>
+
+    <!-- Corpo do Console -->
+    <div class="gearboy-body">
+      
+      <!-- Moldura Escura Trapezoidal da Tela -->
+      <div class="screen-bezel">
+        <div class="bezel-header">
+          <span class="battery-light"></span>
+          <span class="bezel-text">DOT MATRIX WITH STEREO SOUND</span>
+          <span class="stripe"></span>
+        </div>
+
+        <!-- Tela Verde Monocromática estilo Game Boy -->
+        <div class="gb-screen">
+          <div class="dex-number" id="dexNumber">Nº ---</div>
+
+          <form class="search-row" id="searchForm">
+            <input type="text" id="searchInput" placeholder="NOME OU NÚMERO" autocomplete="off">
+            <button type="submit">BUSCAR</button>
+          </form>
+
+          <div class="quick-picks">
+            <button type="button" class="quick-btn" data-pick="pikachu">PIKACHU</button>
+            <button type="button" class="quick-btn" data-pick="charizard">CHARIZARD</button>
+            <button type="button" class="quick-btn" data-pick="gengar">GENGAR</button>
+            <button type="button" class="quick-btn" data-pick="dragapult">DRAGAPULT</button>
+          </div>
+
+          <div class="result-area">
+            <div class="state-message" id="stateMessage">
+              <div class="glyph">?</div>
+              <div>DIGITE UM NOME OU NÚMERO.<br>DADOS VIA POKEAPI.</div>
+            </div>
+
+            <div class="pokemon-card" id="pokemonCard">
+              <div class="card-head">
+                <div class="sprite-box">
+                  <img id="sprite" src="" alt="">
+                </div>
+                <div class="head-text">
+                  <p class="name" id="pName">—</p>
+                  <p class="meta-line" id="pMeta">—</p>
+                  <div class="type-badges" id="typeBadges"></div>
+                </div>
+              </div>
+
+              <div class="section">
+                <h3>DADOS FÍSICOS</h3>
+                <div class="facts-grid">
+                  <div class="fact"><p class="fact-label">ALTURA</p><p class="fact-value" id="factHeight">—</p></div>
+                  <div class="fact"><p class="fact-label">PESO</p><p class="fact-value" id="factWeight">—</p></div>
+                  <div class="fact"><p class="fact-label">EXP BASE</p><p class="fact-value" id="factExp">—</p></div>
+                  <div class="fact"><p class="fact-label">PADRÃO</p><p class="fact-value" id="factDefault">—</p></div>
+                </div>
+              </div>
+
+              <div class="section">
+                <h3>MODELOS</h3>
+                <div class="in-row">
+                  <div class="model-box"><img id="model" src="" alt="Normal"></div>
+                  <div class="model-box"><img id="model-shiny" src="" alt="Shiny"></div>
+                </div>
+              </div>
+
+              <div class="section">
+                <h3>HABILIDADES</h3>
+                <div class="ability-list" id="abilityList"></div>
+              </div>
+
+              <div class="section">
+                <h3>STATS BASE</h3>
+                <div id="statList"></div>
+              </div>
+
+              <div class="section" id="crySection" style="display:none;">
+                <h3>GRITO</h3>
+                <div class="cry-row">
+                  <button type="button" class="cry-btn" id="cryBtn">▶ TOCAR</button>
+                </div>
+                <audio id="cryAudio"></audio>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Controles do Console -->
+      <div class="controls-area">
+        <!-- D-Pad -->
+        <div class="dpad">
+          <div class="dpad-up"></div>
+          <div class="dpad-right"></div>
+          <div class="dpad-down"></div>
+          <div class="dpad-left"></div>
+          <div class="dpad-center"></div>
+        </div>
+
+        <!-- Botões de Ação A e B -->
+        <div class="action-btns">
+          <div class="btn-wrapper">
+            <div class="btn-ab"></div>
+            <span class="btn-label">B</span>
+          </div>
+          <div class="btn-wrapper">
+            <div class="btn-ab"></div>
+            <span class="btn-label">A</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Botões Select e Start -->
+      <div class="system-btns">
+        <div class="pill-btn-group">
+          <div class="pill-btn"></div>
+          <span>SELECT</span>
+        </div>
+        <div class="pill-btn-group">
+          <div class="pill-btn"></div>
+          <span>START</span>
+        </div>
+      </div>
+
+      <!-- Logotipo Super Gear Boy e Alto-falantes -->
+      <div class="branding-row">
+        <div class="logo-box">
+          <span class="sticker-super">SUPER</span>
+          <span class="text-gearboy">GEAR BOY</span>
+        </div>
+        <div class="speaker-grille">
+          <span></span><span></span><span></span><span></span><span></span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
